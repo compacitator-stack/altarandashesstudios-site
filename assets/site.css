@@ -1,0 +1,49 @@
+:root {
+  --bg: #050608; --ink: #e9e1cf; --muted: #9a958a; --bronze: #c7a26a; --bronze-hi: #e6c891; --line: #2a2620;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; background: var(--bg); color: var(--ink); }
+body {
+  min-height: 100vh; display: flex; flex-direction: column;
+  font: 17px/1.55 Georgia, "Times New Roman", serif;
+  background: radial-gradient(ellipse 70% 55% at 30% 20%, #10151a 0%, var(--bg) 70%) fixed;
+}
+main {
+  flex: 1; display: grid; grid-template-columns: minmax(0, 460px) minmax(0, 440px);
+  gap: clamp(32px, 6vw, 88px); align-items: center; justify-content: center;
+  padding: clamp(24px, 5vw, 64px) 16px;
+}
+.poster { margin: 0; }
+.poster img {
+  display: block; width: 100%; height: auto; border-radius: 3px;
+  box-shadow: 0 0 0 1px var(--line), 0 30px 80px rgba(0, 0, 0, .65), 0 0 120px rgba(199, 162, 106, .08);
+}
+.studio { margin: 0 0 18px; color: var(--muted); letter-spacing: .28em; text-transform: uppercase; font-size: 12px; }
+h1 {
+  margin: 0; font-weight: 400; color: var(--bronze-hi); text-transform: uppercase;
+  font-size: clamp(24px, 2.6vw, 32px); letter-spacing: .18em; line-height: 1.15;
+}
+h1 span {
+  display: block; margin-top: 10px; color: var(--bronze); font-size: .44em; letter-spacing: .3em; white-space: nowrap;
+}
+.lede { margin: 26px 0 0; color: var(--ink); }
+.soon {
+  margin: 30px 0 0; padding-top: 22px; border-top: 1px solid var(--line);
+  color: var(--bronze-hi); letter-spacing: .3em; text-transform: uppercase; font-size: 15px;
+}
+.button {
+  display: inline-flex; align-items: center; gap: 10px; margin-top: 22px; padding: 12px 22px;
+  color: #0b0b0b; background: var(--bronze-hi); border-radius: 2px; text-decoration: none;
+  font: 700 14px/1 Georgia, serif; letter-spacing: .08em; text-transform: uppercase;
+  transition: background .15s ease, transform .15s ease;
+}
+.button:hover { background: #f3dcaa; transform: translateY(-1px); }
+.button:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.steam { margin: 18px 0 0; color: var(--muted); font-size: 14px; }
+footer { padding: 24px 16px 32px; text-align: center; color: #6c675e; font-size: 13px; letter-spacing: .06em; }
+@media (max-width: 899px) {
+  main { grid-template-columns: minmax(0, 520px); gap: 32px; text-align: center; }
+  .poster { width: min(86vw, 460px); margin: 0 auto; }
+  .soon { border-top: 0; padding-top: 0; }
+}
+@media (prefers-reduced-motion: reduce) { .button { transition: none; } .button:hover { transform: none; } }
